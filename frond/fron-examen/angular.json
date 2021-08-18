@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "fron-examen"
+    }
+  },
+  "defaultProject": "fron-examen",
+  "cli": {
+    "analytics": false
+  }
 }
