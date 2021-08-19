@@ -61,7 +61,7 @@ public class UsuarioController {
             UsuarioEditDTO usuarioEditDTO =  usuarioService.findByEmail(email);
 
             if (usuarioEditDTO!=null){
-
+                response.put("message",null);
                 response.put("data",usuarioEditDTO);
                 response.put("error",null);
                 return new ResponseEntity<Object>(response, HttpStatus.OK);

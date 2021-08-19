@@ -1,3 +1,6 @@
+import {UsuarioEditDTO} from "./usuario-edit-dto";
+
+
 export interface Response {
   content:any;
   pageable: Pageable;
@@ -10,6 +13,16 @@ export interface Response {
   first: boolean;
   numberOfElements: number;
   empty: boolean;
+}
+
+export interface datos {
+  data:Response,
+  error:any
+}
+
+export interface userEdit {
+  data:UsuarioEditDTO,
+  error:any
 }
 
 interface Pageable {

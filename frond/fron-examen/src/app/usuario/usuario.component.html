@@ -1,45 +1,44 @@
+<app-usuario-crear *ngIf="mostraModalService.modal" [correo]="clienteSeleccionado" (termino)="getAlluser(0,true)"></app-usuario-crear>
+
 <div class="card border-primary mb-3">
   <div class="card-header">Clientes</div>
   <div class="card-body text-primary">
     <h5 class="card-title">Listado de clientes</h5>
     <div class="my-2 text-left">
-      <button class="btn btn-rounded btn-primary" type="button" [routerLink]="['/clientes/form']">
+      <button class="btn btn-rounded btn-primary" type="button" (click)="mostrarModal()" >
         Crear Cliente
       </button>
     </div>
-    <div *ngIf="clientes?.length == 0" class="alert alert-info">
+    <div *ngIf="clientes.length == 0" class="alert alert-info">
       No hay registros en la base de datos!
     </div>
-    <table class="table table-bordered table-striped" *ngIf="clientes?.length>0">
+    <table class="table table-bordered table-striped" *ngIf="clientes.length>0">
       <thead>
       <tr>
         <th>#</th>
         <th>nombre</th>
-        <th>apellido</th>
+        <th>A. paterno</th>
+        <th>A. materno</th>
         <th>email</th>
-        <th>fecha</th>
         <th>editar</th>
-        <th>eliminar</th>
       </tr>
       </thead>
       <tbody>
-    <!--  <tr *ngFor="let cliente of clientes">
-
+      <tr *ngFor="let cliente of clientes;let i = index">
+        <td>{{ i }}</td>
         <td>{{ cliente.nombre }}</td>
-        <td>{{ cliente.apellido | uppercase }}</td>
-        <td>{{ cliente.email }}</td>
-        <td>{{ cliente.createAt | date:"EEEE dd, MMMM yyyy"}}</td>
+        <td>{{ cliente.apellidoPaterno }}</td>
+        <td>{{ cliente.apellidoMaterno }}</td>
+        <td>{{ cliente.correo }}</td>
+
         <td>
-          <button type="button" name="editar" [routerLink]="['/clientes/form', cliente.id]" class="btn btn-primary btn-sm">editar</button>
+          <button type="button" name="editar" (click)="EditarUsuario(cliente.correo)" >editar</button>
         </td>
-        <td>
-          <button type="button" name="eliminar"  class="btn btn-danger btn-sm">eliminar</button>
-        </td>
-      </tr> -->
+
+      </tr>
       </tbody>
     </table>
-
-
-
+    <button type="button" (click)="siguiente()" >siguiente</button>
+    <button type="button"  (click)="anterior()" >anterior</button>
   </div>
 </div>

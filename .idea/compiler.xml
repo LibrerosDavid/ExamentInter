@@ -7,9 +7,9 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="examenInterfell" />
-        <module name="frond" />
-        <module name="service-gusto" />
         <module name="service-user" />
+        <module name="service-gusto" />
+        <module name="frond" />
       </profile>
     </annotationProcessing>
   </component>
