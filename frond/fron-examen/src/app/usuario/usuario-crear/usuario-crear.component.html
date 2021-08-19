@@ -1,0 +1,108 @@
+<div class="abrir-modal animacion fadeIn" *ngIf="mostraModalService.modal">
+  <div class="modal" tabindex="-1" role="dialog" style="display:block;">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+
+          <h5 class="modal-title">Usuario</h5>
+          <button (click)="cerrarModal()" type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+
+        <div class="modal-body">
+          <div class="container">
+            <div class="row">
+
+              <div *ngIf="datos!=null">
+                <form [formGroup]="datos" (ngSubmit)="enviaInformacion()">
+
+                  <div class="form-group row">
+                    <label class="col-form-label col-sm-2">Nombre</label>
+                    <div class="col-sm-6">
+                      <input type="text" class="form-control" formControlName="nombre"> <!-- required minlength="4" -->
+                      <ng-container *ngFor="let validacion of usuarioInfo.nombre">
+                        <div class="alert alert-danger" *ngIf="datos.get('nombre').hasError(validacion.type)">
+                          {{validacion.message}}
+                        </div>
+                      </ng-container>
+                    </div>
+                  </div>
+
+                  <div class="form-group row">
+                    <label class="col-form-label col-sm-2">apellido Paterno</label>
+                    <div class="col-sm-6">
+                      <input type="text" class="form-control" formControlName="apellidoPaterno">
+                      <!-- required minlength="4" -->
+                      <ng-container *ngFor="let validacion of usuarioInfo.apellidoPaterno">
+                        <div class="alert alert-danger" *ngIf="datos.get('apellidoPaterno').hasError(validacion.type)">
+                          {{validacion.message}}
+                        </div>
+                      </ng-container>
+                    </div>
+                  </div>
+
+                  <div class="form-group row">
+                    <label class="col-form-label col-sm-2">apellido Materno</label>
+                    <div class="col-sm-6">
+                      <input type="text" class="form-control" formControlName="apellidoMaterno">
+                      <!-- required minlength="4" -->
+                      <ng-container *ngFor="let validacion of usuarioInfo.apellidoMaterno">
+                        <div class="alert alert-danger" *ngIf="datos.get('apellidoMaterno').hasError(validacion.type)">
+                          {{validacion.message}}
+                        </div>
+                      </ng-container>
+                    </div>
+                  </div>
+
+                  <div class="form-group row">
+                    <label class="col-form-label col-sm-2">correo</label>
+                    <div class="col-sm-6">
+                      <input type="text" class="form-control" formControlName="correo"> <!-- required minlength="4" -->
+                      <ng-container *ngFor="let validacion of usuarioInfo.correo">
+                        <div class="alert alert-danger" *ngIf="datos.get('correo').hasError(validacion.type)">
+                          {{validacion.message}}
+                        </div>
+                      </ng-container>
+                    </div>
+                  </div>
+
+
+                  <div class="form-group row">
+                    <label class="col-form-label col-sm-2">cedula</label>
+                    <div class="col-sm-6">
+                      <input type="text" class="form-control" formControlName="cedula"> <!-- required minlength="4" -->
+                      <ng-container *ngFor="let validacion of usuarioInfo.cedula">
+                        <div class="alert alert-danger" *ngIf="datos.get('cedula').hasError(validacion.type)">
+                          {{validacion.message}}
+                        </div>
+                      </ng-container>
+                    </div>
+                  </div>
+
+                  <div class="form-group row">
+                    <label class="col-form-label col-sm-2">telefono</label>
+                    <div class="col-sm-6">
+                      <input type="text" class="form-control" formControlName="telefono">
+                      <!-- required minlength="4" -->
+                      <ng-container *ngFor="let validacion of usuarioInfo.telefono">
+                        <div class="alert alert-danger" *ngIf="datos.get('telefono').hasError(validacion.type)">
+                          {{validacion.message}}
+                        </div>
+                      </ng-container>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <button class="btn btn-primary" role="button" [disabled]="!datos.valid">ok</button>
+                  </div>
+
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
